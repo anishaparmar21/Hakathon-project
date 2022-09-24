@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html>  
+<head>  
+  
+  
+  
+  
+
+<style>  
+body {   
+   text-align: center;  
+  
+   background-color: #0a0a0b;  
+
+  border: 4mm ridge rgba(2, 238, 230, 0.6);
+  color:rgba(2, 233, 239, 0.6)
+ }  
+
+  
+
+
+.clock {  
+    position: absolute;  
+    top: 50%;  
+    left: 50%;  
+    transform: translateX(-50%) translateY(-50%);  
+    color: rgba(2, 233, 239, 0.6);  
+    
+    font-size: 60px;  
+    
+    letter-spacing: 7px; 
+    border: 4mm ridge rgba(2, 233, 239, 0.6);  
+
+
+}  
+</style>  
+<body>  
+ 
+
+<h1> Digital Clock</h1>  
+<div id = "MyClockDisplay" class = "clock" onload = "showTime()"> </div>  
+<script>  
+function showTime(){  
+    var date = new Date();  
+    var h = date.getHours();  
+    var m = date.getMinutes();  
+    var s = date.getSeconds();  
+    var session = "AM";  
+    if(h == 0) {  
+        h = 12;  
+    }  
+    if(h > 12) {  
+        hh = h - 12;  
+        session = "PM";  
+    }  
+    h = (h < 10) ? "0" + h : h;  
+    m = (m < 10) ? "0" + m : m;  
+    s = (s < 10) ? "0" + s : s;  
+    var time = h + ":" + m + ":" + s + " " + session;  
+    document.getElementById("MyClockDisplay").innerText = time;  
+    document.getElementById("MyClockDisplay").textContent = time;  
+    setTimeout(showTime, 1000);  
+}  
+showTime();  
+</script>  
+</body>  
+</html> 
